@@ -129,3 +129,11 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Redirige à la page d'accueil après la connexion d'un utilisateur
+
+LOGIN_REDIRECT_URL = '/computerApp/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGIN_URL = '/accounts/login/'

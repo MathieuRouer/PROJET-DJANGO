@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>Votre nom d'utilisateur et mot de passe ne correspondent pas. Veuillez réessayer. </p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Votre compte n'a pas accès à cette page. Pour y avoir accès, connectez vous avec un compte y ayant accès.</p>
+    {% else %}
+      <p>Merci de vous connecter pour voir cette page.</p>
+    {% endif %}
+  {% endif %}
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <!-- Icon -->
+    <div class="fadeIn first">
+      {% load static %}
+      <img src="{% static 'computerapp/images/login.png' %}" width="100px" height="100px">
+    </div>
+
+    <!-- Login Form -->
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <td >{{ form.username.label_tag }}</td>
+      <td class="fadeIn second">{{ form.username }}</td>
+
+      <td >{{ form.password.label_tag }}</td>
+      <td class="fadeIn third">{{ form.password }}</td>
+
+      <input type="submit" class="fadeIn fourth" value="login">
+      <input type="hidden" name="next" value="{{ next }}">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="{% url 'password_reset' %}">Mot de passe oublié ?</a>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

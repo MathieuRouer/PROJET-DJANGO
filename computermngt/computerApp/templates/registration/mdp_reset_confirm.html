@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+    {% if validlink %}
+        <p>Merci d'entrer votre nouveau mot de passe.</p>
+        <form action="" method="post">
+        {% csrf_token %}
+            <table>
+                <tr>
+                    <td>{{ form.new_password1.errors }}
+                        <label for="id_new_password1">Nouveau mot de passe:</label></td>
+                    <td>{{ form.new_password1 }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.new_password2.errors }}
+                        <label for="id_new_password2">Confirmer votre mot de passe:</label></td>
+                    <td>{{ form.new_password2 }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Change my password"></td>
+                </tr>
+            </table>
+        </form>
+    {% else %}
+        <h1>Erreur</h1>
+        <p>Le lien pour rénisialiser le mot de passe est invalide, il a peut-être déjà était rénitialisé..</p>
+    {% endif %}
+{% endblock %}
