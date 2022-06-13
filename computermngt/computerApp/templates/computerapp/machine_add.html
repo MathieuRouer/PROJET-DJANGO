@@ -1,11 +1,18 @@
 {% extends "index.html" %}
 
-{% block content %}
-<h1>Nom: {{ machine.name }}</h1>
 
-    <p> <strong> Id</strong> : {{ machine.id }} </a ></p>
-    <p> <strong> Date de maintenance :   
-    </strong> {{machine.maintenanceDate}}</p>
-    <p> <strong> Machine :
-    </strong> {{ machine.mach }}</p>
+{% block content %}
+
+<div class="container-fluid employe">
+
+    {% for machines in machines %}
+
+<h1>Nom-prenom: {{ machines.nom }} {{ machines.prenom }}</h1>
+
+    <p> <strong> numéro</strong> : {{ machines.id }} </a ></p>
+    <p> <strong> Date de recrutement : {{machines.date_recrutement}} </strong> </p>
+
+    {% endfor %}
+</div>
+
 {% endblock %}

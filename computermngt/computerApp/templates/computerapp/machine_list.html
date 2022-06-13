@@ -1,16 +1,35 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1> Liste des machines</h1>
-    {% if machines %}
-    <ul>
-        {% for machine in machines %}
-            <li>
-                {{ machine.id }} </a> ({{machine.nom}})
-            </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p> Il n'y a pas de machine. </p>
-    {% endif %}
+   
+    <div class="container liste-machine">
+        <h1> Liste des machines</h1>
+        <div class="row col-md-6 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+        <thead>
+        <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Ajouter une nouvelle machine</a>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Date de maintenance</th>
+            </tr>
+        </thead>
+                {% if machines %}
+                {% for machine in machines %}
+                <tr>
+                    <td>{{ machine.id }}</td>
+                    <td>{{machine.nom}}</td>
+                    <td>{{machine.maintenanceDate }}</td>
+                    <td class="text-center"><a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                </tr>
+                
+                {% endfor %}
+                {% else %}
+                <p> Il n'y a pas de machine. </p>
+                {% endif %}
+        </table>
+        </div>
+    </div>
 {% endblock %}
+
+

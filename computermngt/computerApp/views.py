@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404, render, redirect
 from flask_login import login_url
 from computerApp.models import Machine
+from computerApp.models import employe
 from computerApp.forms import AddMachineForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -35,14 +36,6 @@ def machine_detail_view(request, pk):
 	return render(request, 'computerapp/machine_detail.html', context)
 
 def machine_add_form(request):
-	if request.method == 'POST':
-		form = AddMachineForm(request.POST or None)
-		if form.is_valid():
-			new_machine = Machine(nom=form.cleaned_data['nom'])
-			new_machine.save()
-			return redirect('machines')
-	else :
-		form = AddMachineForm()
-		context = {'form' : form}
-		return render(request,
-	 	 'computerapp/machine_add.html',context)
+	machines = employe.objects.all()
+	context = {'machines': machines}
+	return render(request, 'computerapp/machine_add.html',context)	

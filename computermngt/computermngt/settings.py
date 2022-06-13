@@ -136,4 +136,7 @@ LOGIN_REDIRECT_URL = '/computerApp/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+#Redirige à la page de login si non authentifié (normalement mais ne marche pas)
+
 LOGIN_URL = '/accounts/login/'
+

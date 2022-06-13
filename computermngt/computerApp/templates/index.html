@@ -11,6 +11,7 @@
 	{% load static %}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 	<style>
 body {
@@ -54,7 +55,42 @@ a {
   text-decoration: none;
 }
 
+.footer1{
+  background-color: #1b1a7e;
+  height: 500px;
+  float: center;
+  text-align: center;
+  vertical-align: center;
+}
 
+.footer{
+  float: center;
+  text-align: center;
+  vertical-align: center;
+  height: 500px;
+  padding-top: 75px
+}
+
+.liste-machine{
+  float: center;
+  text-align: center;
+  vertical-align: center;
+  border-style: solid 2px black;
+}
+
+.custyle{
+  float: center;
+  text-align: center;
+  vertical-align: center;
+  margin-left: 270px;
+  border-style: solid 2px black;
+}
+
+.employe{
+  text-align: center;
+  float: center;
+  vertical-align: center;
+}
 /* BASIC */
 
 h2 {
@@ -298,6 +334,18 @@ input[type=text]:placeholder {
   width:60%;
 }
 
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+
 	</style>
 </head>
 
@@ -308,13 +356,13 @@ input[type=text]:placeholder {
     <div class="container-fluid navbar1 ">
       <div class="row navbar">
         <div class="col-md-3">
-          <button type="button" class="btn btn-info" id="test"></a><a href="{% url 'machines' %}"><b>LISTE MACHINES</b></a></button>
+          <button type="button" class="btn btn-info" id="test"><a href="{% url 'machines' %}"><b>LISTE MACHINES</b></a></button>
         </div>
         <div class="col-md-3">
           <button type="button" class="btn btn-info"><a href="{% url 'index' %}"><b>HOME</b></a></button>
         </div>
         <div class="col-md-3">
-          <button type="button" class="btn btn-info"><a href="{% url 'add_machine' %}"><b>AJOUT MACHINES</b></a></button>
+          <button type="button" class="btn btn-info"><a href="{% url 'add_machine' %}"><b>EMPLOYE</b></a></button>
         </div>
         <div class="col-md-3">
           {% load static %}
@@ -331,7 +379,7 @@ input[type=text]:placeholder {
           <div col-md-2>
             <p><a href="{% url 'logout'%}?next={{request.path}}">Deconnexion</a></p>
           </div>
-          {% endif %}
+        {% endif %}
       </div>
     </div>
 	{% endblock %}
@@ -344,66 +392,60 @@ input[type=text]:placeholder {
 	{% endblock %}
 		
 	{% block content %}
-		Description
+  <div class="container-fluid footer1">
+    <div class="container footer">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 pb-5">
+  
+                      <form method="post">
+                          <div class="card border-primary rounded-0">
+                              <div class="card-header p-0">
+                                  <div class="bg-info text-white text-center py-2">
+                                      <h3><i class="fa fa-envelope"></i> CONTACT ADMIN</h3>
+                                  </div>
+                              </div>
+                              <div class="card-body p-3">
+  
+                                  <!--Body-->
+                                  <div class="form-group">
+                                      <div class="input-group mb-2">
+                                          <div class="input-group-prepend">
+                                              <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                                          </div>
+                                          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nom et prenom" required>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <div class="input-group mb-2">
+                                          <div class="input-group-prepend">
+                                              <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
+                                          </div>
+                                          <input type="email" class="form-control" id="nombre" name="email" placeholder="exemple@gmail.com" required>
+                                      </div>
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <div class="input-group mb-2">
+                                          <div class="input-group-prepend">
+                                              <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
+                                          </div>
+                                          <textarea class="form-control" placeholder="Envoie ton message" required></textarea>
+                                      </div>
+                                  </div>
+  
+                                  <div class="text-center">
+                                      <input type="submit" value="Envoyer" class="btn btn-info btn-block rounded-0 py-2">
+                                  </div>
+                              </div>
+  
+                          </div>
+                      </form>
+  
+        </div>
+      </div>
+    </div>
+  </div>
 	{% endblock %}
-
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<div class="container">
-	<div class="row justify-content-center">
-		<div class="col-12 col-md-8 col-lg-6 pb-5">
-
-                    <!--Form with header-->
-
-                    <form method="post">
-                        <div class="card border-primary rounded-0">
-                            <div class="card-header p-0">
-                                <div class="bg-info text-white text-center py-2">
-                                    <h3><i class="fa fa-envelope"></i> CONTACT ADMIN</h3>
-                                </div>
-                            </div>
-                            <div class="card-body p-3">
-
-                                <!--Body-->
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
-                                        </div>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nom et prenom" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
-                                        </div>
-                                        <input type="email" class="form-control" id="nombre" name="email" placeholder="exemple@gmail.com" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
-                                        </div>
-                                        <textarea class="form-control" placeholder="Envoie ton message" required></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="text-center">
-                                    <input type="submit" value="Envoyer" class="btn btn-info btn-block rounded-0 py-2">
-                                </div>
-                            </div>
-
-                        </div>
-                    </form>
-                    <!--Form with header-->
-
-
-                </div>
-	</div>
-</div>
 
 </body>
 </html>

@@ -5,6 +5,7 @@ from django.db import models
 from regex import F
 import requests
 from datetime import datetime
+from django.db import models
 
 # Create your models here.
 
@@ -20,3 +21,10 @@ class Machine(models.Model):
     nom = models.CharField(max_length=6)
     maintenanceDate = models.DateField(default = datetime.now())
     mach = models.CharField(max_length=32, choices=TYPE, default='PC')
+
+class employe(models.Model):
+    id = models.AutoField(primary_key=True, editable=False)
+    nom = models.CharField(max_length=15)
+    prenom = models.CharField(max_length=15)
+    date_recrutement = models.DateField(default = datetime.now())
+
