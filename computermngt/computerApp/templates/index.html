@@ -14,10 +14,12 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 	<style>
+
 body {
   background-color: rgb(12, 236, 252);
 }
 
+/* Barre de navigation */
 .navbar{
   background-color: rgb(10, 10, 90);
   height: 150px;
@@ -30,6 +32,8 @@ body {
   height: 150px;
 }
 
+/* Deconnexion */
+
 .logout{
   height: 75px;
   background-color: rgb(33, 174, 192);
@@ -41,8 +45,10 @@ body {
 
 .logout1{
   height: 75px;
-
+  border-style: solid 2px white;
 }
+
+/* Logo du site */
 
 .logo{
   float: center;
@@ -50,10 +56,7 @@ body {
   vertical-align: center;
 }
 
-a {
-  color : white;
-  text-decoration: none;
-}
+/* Bas de page HOME */
 
 .footer1{
   background-color: #1b1a7e;
@@ -71,6 +74,8 @@ a {
   padding-top: 75px
 }
 
+/* Liste des machines */
+
 .liste-machine{
   float: center;
   text-align: center;
@@ -86,12 +91,20 @@ a {
   border-style: solid 2px black;
 }
 
+/* Liste des employés */
+
 .employe{
   text-align: center;
   float: center;
   vertical-align: center;
 }
-/* BASIC */
+
+/* BASICS */
+
+a {
+  color : white;
+  text-decoration: none;
+}
 
 h2 {
   text-align: center;
@@ -103,9 +116,7 @@ h2 {
   color: #cccccc;
 }
 
-
-
-/* STRUCTURE */
+/* Page de connexion */
 
 .wrapper {
   display: flex;
@@ -140,8 +151,6 @@ h2 {
   border-radius: 0 0 10px 10px;
 }
 
-/* TABS */
-
 h2.inactive {
   color: #cccccc;
 }
@@ -150,8 +159,6 @@ h2.active {
   color: #0d0d0d;
   border-bottom: 2px solid #5fbae9;
 }
-
-/* FORM TYPOGRAPHY*/
 
 input[type=button], input[type=submit], input[type=reset]  {
   background-color: #56baed;
@@ -217,11 +224,8 @@ input[type=text]:placeholder {
   color: #cccccc;
 }
 
+/* ANIMATIONS PAGE DE CONNEXION */
 
-
-/* ANIMATIONS */
-
-/* Simple CSS3 Fade-in-down Animation */
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
@@ -257,7 +261,6 @@ input[type=text]:placeholder {
   }
 }
 
-/* Simple CSS3 Fade-in Animation */
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
@@ -301,7 +304,6 @@ input[type=text]:placeholder {
   animation-delay: 1s;
 }
 
-/* Simple CSS3 Fade-in Animation */
 .underlineHover:after {
   display: block;
   left: 0;
@@ -321,10 +323,6 @@ input[type=text]:placeholder {
 .underlineHover:hover:after{
   width: 100%;
 }
-
-
-
-/* OTHERS */
 
 *:focus {
     outline: none;
@@ -352,7 +350,8 @@ input[type=text]:placeholder {
 <body>
 
 	{% block menu %}
-			<!-- Barre de navigation -->
+		<!-- Barre de navigation -->
+
     <div class="container-fluid navbar1 ">
       <div class="row navbar">
         <div class="col-md-3">
@@ -370,6 +369,9 @@ input[type=text]:placeholder {
         </div>
       </div>
     </div>
+
+    <!-- Barre de DECONNEXION -->
+
     <div classe="container-fluid logout1">
       <div class="row logout">
         {% if user.is_authenticated %}
@@ -384,6 +386,7 @@ input[type=text]:placeholder {
     </div>
 	{% endblock %}
 
+	<!-- LOGO DU SITE -->
 	{% block logo %}
   <div class="container-fluid logo">
     {% load static %}
@@ -391,6 +394,9 @@ input[type=text]:placeholder {
   </div>
 	{% endblock %}
 		
+
+  <!-- FORMULAIRE DE CONTACT -->
+
 	{% block content %}
   <div class="container-fluid footer1">
     <div class="container footer">

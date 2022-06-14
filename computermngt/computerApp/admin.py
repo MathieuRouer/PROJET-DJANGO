@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+# AJOUT DE NOS 2 MODELES
 
 from .models import Machine
 from .models import employe

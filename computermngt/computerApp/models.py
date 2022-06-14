@@ -7,7 +7,7 @@ import requests
 from datetime import datetime
 from django.db import models
 
-# Create your models here.
+# CREATION DE NOS 2 MODELES
 
 class Machine(models.Model):
     TYPE = (

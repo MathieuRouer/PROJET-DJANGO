@@ -1,18 +1,37 @@
 {% extends "index.html" %}
 
+	<!-- LISTE DES MACHINES -->
 
 {% block content %}
 
-<div class="container-fluid employe">
-
-    {% for machines in machines %}
-
-<h1>Nom-prenom: {{ machines.nom }} {{ machines.prenom }}</h1>
-
-    <p> <strong> numéro</strong> : {{ machines.id }} </a ></p>
-    <p> <strong> Date de recrutement : {{machines.date_recrutement}} </strong> </p>
-
-    {% endfor %}
-</div>
-
+    <div class="container liste-machine">
+        <h1> Liste des employés</h1>
+        <div class="row col-md-6 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+        <thead>
+        <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Ajouter un nouvelle employé</a>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de recrutement</th>
+            </tr>
+        </thead>
+                {% if machines %}
+                {% for machines in machines %}
+                <tr>
+                    <td>{{ machines.id }}</td>
+                    <td>{{ machines.nom }}</td>
+                    <td>{{ machines.prenom }}</td>
+                    <td>{{machines.date_recrutement}}</td>
+                    <td class="text-center"><a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                </tr>
+                
+                {% endfor %}
+                {% else %}
+                <p> Il n'y a pas d'employé. </p>
+                {% endif %}
+        </table>
+        </div>
+    </div>
 {% endblock %}
